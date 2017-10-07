@@ -1,24 +1,4 @@
-/*
-  Theme colors
-    All selectors with colors that would need
-    to be changed for theme changes
-*/
 
-/*
-  COLORS
-
-  Sky
-    rgb(52, 152, 219)
-
-  Dark Blue
-    rgb(44, 62, 80)
-
-  Grey
-    rgb(127, 140, 141)
-
-  Cloud
-    rgb(236, 240, 241)
-*/
 
 .background--skyBlue {
   background-color: rgb(52, 152, 219);

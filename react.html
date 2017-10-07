@@ -3,6 +3,9 @@
 <head>
 	<title>React Demo</title>
 
+	<link href="https://unpkg.com/mocha-css" rel="stylesheet" />
+
+
 	<style type="text/css">
 		.messageBox {
 			border: 1px solid;
@@ -28,68 +31,26 @@
 </head>
 <body>
 
-<main id="content">
-	
-</main>
+<main id="content"></main>
+
+<div id="mocha"></div>
 
 
 <script type="text/javascript" src="https://unpkg.com/babel-standalone"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.1.2/chai.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/4.0.1/mocha.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.0.0/umd/react.production.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.0.0/umd/react-dom.production.min.js"></script>
 
-<script type="text/babel" data-preset="react">
+<script type="text/babel" data-preset="react" src="index.js"></script>
+<script type="text/babel" data-preset="react" src="tests.js">
 
-	class NameInput extends React.Component {
-		constructor(props) {
-			super(props);
 
-			this.state = {
-				message: {
-					type: undefined,
-					body: undefined
-				}
 
-			}
 
-			this.buttonClicked = this.buttonClicked.bind(this);
-		}
-
-		buttonClicked(event) {
-		console.log('here?')
-			let name = this.refs.nameInput.value;
-			this.setState({
-				message: {
-					type: name ? "success" : "error",
-					body: name ? "yay name!" : "this is not quite right"
-				}
-			})
-		}
-
-		render() {
-			let msg = this.state.message;
-
-			return (
-				<div>
-					<label>Name: </label>
-					<input ref="nameInput" type="text" id="name"/>
-					<button onClick={this.buttonClicked}>Click Me</button>
-					<MessageBox type={msg.type} message={msg.body}/>
-				</div>
-			)
-		}	
-	}
-
-	class MessageBox extends React.Component {
-		render() {
-		return (
-			<div className={"messageBox " + (this.props.type || "hidden") }>{this.props.message}</div>
-		)
-		}
-	}
-
-	ReactDOM.render(<NameInput/>, document.getElementById('content'))
+	
 </script>
 
 </body>
