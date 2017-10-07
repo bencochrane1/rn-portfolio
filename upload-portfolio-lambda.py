@@ -6,10 +6,10 @@ import mimetypes
 
 def lambda_handler(event, context):
     sns = boto3.resource('sns')
-    topic = sns.Topic('arn:aws:sns:us-east-1:502377633955:deployPortfolioTopic')
+    topic = sns.Topic('arn:aws:sns:ap-southeast-2:502377633955:deployPortfolioTopic')
 
     location = {
-        "bucketName": 'portfoliobuild.bencochrane.info',
+        "bucketName": 'autobuild.bencochrane.info',
         "objectKey": 'portfoliobuild.zip'
     }
     try:
@@ -24,7 +24,7 @@ def lambda_handler(event, context):
 
         s3 = boto3.resource('s3', config=Config(signature_version='s3v4'))
 
-        portfolio_bucket = s3.Bucket('portfolio.bencochrane.info')
+        portfolio_bucket = s3.Bucket('bencochrane.info')
         build_bucket = s3.Bucket(location["bucketName"])
 
         portfolio_zip = StringIO.StringIO()
